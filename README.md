@@ -1,2 +1,2 @@
-# registeeldiscordbot
-Repository for Registeel the Discord Bot
+<h1>REGISTEEL</h1>
+<code>Repository for Registeel the Discord Bot</code>
