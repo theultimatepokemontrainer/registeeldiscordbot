@@ -1,1 +1,2 @@
-<embed src="https://sites.google.com/registeeldiscordbot">
+<h1>REGISTEEL</h1>
+<code>Repository for Registeel the Discord Bot</code>
