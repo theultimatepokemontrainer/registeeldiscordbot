@@ -106,6 +106,8 @@ async def on_message(message):
     if any(word in message.content for word in poke_ball):
         await message.channel.send(random.choice(igot_caught))
 
+    if message.content.startswith('r!rumors'):
+        await message.channel.send('Some say that the third Pokemon SwSh DLC is named "Cinder Citadel"')
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
