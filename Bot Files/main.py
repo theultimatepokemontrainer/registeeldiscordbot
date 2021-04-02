@@ -5,6 +5,7 @@ import random
 import requests
 import json
 from dotenv import load_dotenv
+from discord.ext import commands
 
 load_dotenv()
 client = discord.Client()
@@ -121,6 +122,12 @@ async def on_message(message):
 
     if any(word in message.content for word in e_e2):
       await message.channel.send(random.choice(pkmnto_catch))  
+
+    if message.content.startswith('r!randomnumber'):
+      randomnumber = random.randint(0,1000)
+      await message.channel.send(randomnumber)
+      if randomnumber == 626:
+        await message.channel.send('Your number is **626**. You win a cookie :)')
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
