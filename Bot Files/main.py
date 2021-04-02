@@ -27,6 +27,13 @@ poke_ball = ["GO POKEBALL!"]
 
 igot_caught = ["You have caught the wild Registeel"]
 
+mining_stuff = ["You mined Stone!", "You mined Dirt...","You mined DIAMONDS", "You mined Emerald", "You mined nothing LOL", "You mined Redstone, cool!", "You mined GOLD"]
+
+e_e = ['r!mine']
+
+e_e2 = ['r!catchpkmn']
+
+pkmnto_catch = ['You caught a Pikachu', 'You caught a Zebstrika', 'You caught a Lugia', 'You caught a Venusaur', 'You caught and ARCEUS OMG', 'You caught a Snom. EEEE', 'You caught..... Nothing']
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
@@ -93,7 +100,7 @@ async def on_message(message):
 
     if message.content.startswith('r!sourcecode'):
         await message.channel.send(
-            'https://repl.it/@pycoding111111/Registeel#main.py'
+            'https://github.com/theultimatepokemontrainer/registeeldiscordbot'
         )
 
     if message.content.startswith('r!website'):
@@ -108,6 +115,12 @@ async def on_message(message):
 
     if message.content.startswith('r!rumors'):
         await message.channel.send('Some say that the third Pokemon SwSh DLC is named "Cinder Citadel"')
+
+    if any(word in message.content for word in e_e):
+      await message.channel.send(random.choice(mining_stuff))
+
+    if any(word in message.content for word in e_e2):
+      await message.channel.send(random.choice(pkmnto_catch))  
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
