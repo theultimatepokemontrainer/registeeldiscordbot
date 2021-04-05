@@ -131,5 +131,10 @@ async def on_message(message):
       if randomnumber == 626:
         await message.channel.send('Your number is **626**. You win a cookie :)')
 
+    if message.content.startswith('secret!e'):
+     e = pb.pokemon_shape('fish')
+     await message.channel.send(e.pokemon_species)
+
+
 keep_alive()
 client.run(os.getenv('TOKEN'))
