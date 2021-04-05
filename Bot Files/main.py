@@ -6,6 +6,7 @@ import requests
 import json
 from dotenv import load_dotenv
 from discord.ext import commands
+import pokebase as pb
 
 load_dotenv()
 client = discord.Client()
@@ -30,10 +31,6 @@ igot_caught = ["You have caught the wild Registeel"]
 
 mining_stuff = ["You mined Stone!", "You mined Dirt...","You mined DIAMONDS", "You mined Emerald", "You mined nothing LOL", "You mined Redstone, cool!", "You mined GOLD"]
 
-e_e = ['r!mine']
-
-e_e2 = ['r!catchpkmn']
-
 pkmnto_catch = ['You caught a Pikachu', 'You caught a Zebstrika', 'You caught a Lugia', 'You caught a Venusaur', 'You caught and ARCEUS OMG', 'You caught a Snom. EEEE', 'You caught..... Nothing']
 
 def get_quote():
@@ -46,7 +43,7 @@ def get_quote():
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    await client.change_presence(activity=discord.Game(name="Friday Night Funkin'"))
+    await client.change_presence(activity=discord.Game(name="Pokemon Ruby and Sapphire"))
 
 
 @client.event
@@ -73,8 +70,7 @@ async def on_message(message):
         )
 
     if message.content.startswith('r!help'):
-        await message.channel.send(
-            'https://sites.google.com/view/registeeldiscordbot/commands')
+        await message.channel.send('https://sites.google.com/view/registeeldiscordbot/commands')
 
     if message.content.startswith('r!rickroll'):
         await message.channel.send(
@@ -84,17 +80,23 @@ async def on_message(message):
         await message.channel.send('Hello @everyone!')
 
 
-    if message.content.startswith('r!whoregisteel'):
-        await message.channel.send(
-            'Who I am? Well its hard to explain here but you can look at this https://bulbapedia.bulbagarden.net/wiki/Registeel'
-        )
+    if message.content.startswith('r!registeelheight'):
+        registeel = pb.pokemon('registeel')
+        await message.channel.send(registeel.height)
+
+    if message.content.startswith('r!registeelweight'):
+        registeel = pb.pokemon('registeel')
+        await message.channel.send(registeel.weight)
+
+    if message.content.startswith('r!registeelsprite'):
+        await message.channel.send('https://img.pokemondb.net/artwork/large/registeel.jpg')
 
     if message.content.startswith('r!gimmeameem'):
         await message.channel.send(
             'Uh ok. https://www.youtube.com/watch?v=QH2-TGUlwu4')
 
     if message.content.startswith('r!creator'):
-        await message.channel.send('theultimatepokemontrainer#5314')
+        await message.channel.send('the_tankman#5314')
 
     if message.content.startswith('r!amongus'):
         await message.channel.send('YOU ARE AN IMPOSTOR!!')
@@ -117,10 +119,10 @@ async def on_message(message):
     if message.content.startswith('r!rumors'):
         await message.channel.send('Some say that the third Pokemon SwSh DLC is named "Cinder Citadel"')
 
-    if any(word in message.content for word in e_e):
+    if message.content.startswith('r!mine'):
       await message.channel.send(random.choice(mining_stuff))
 
-    if any(word in message.content for word in e_e2):
+    if message.content.startswith('r!catchpkmn'):
       await message.channel.send(random.choice(pkmnto_catch))  
 
     if message.content.startswith('r!randomnumber'):
