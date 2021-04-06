@@ -70,7 +70,11 @@ async def on_message(message):
         )
 
     if message.content.startswith('r!help'):
-        await message.channel.send('https://sites.google.com/view/registeeldiscordbot/commands')
+        embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=0x00ff00)
+        embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!catchpkmn, r!mine, r!randomnumber, r!yt", inline=False)
+        embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website", inline=False)
+        embedVar.add_field(name="More Commands", value="https://sites.google.com/view/registeeldiscordbot/commands", inline=False)
+        await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!rickroll'):
         await message.channel.send(
@@ -134,6 +138,10 @@ async def on_message(message):
     if message.content.startswith('secret!e'):
      e = pb.pokemon_shape('fish')
      await message.channel.send(e.pokemon_species)
+
+    if message.content.startswith('r!yt'):
+        await message.channel.send('Subscribe here! https://www.youtube.com/channel/UCxzkAP7o94jO-5U1DcESA8w')
+   
 
 
 keep_alive()
