@@ -43,7 +43,7 @@ def get_quote():
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    await client.change_presence(activity=discord.Game(name="Pokemon Ruby and Sapphire"))
+    await client.change_presence(activity=discord.Game(name="r!help"))
 
 
 @client.event
@@ -100,7 +100,7 @@ async def on_message(message):
             'Uh ok. https://www.youtube.com/watch?v=QH2-TGUlwu4')
 
     if message.content.startswith('r!creator'):
-        await message.channel.send('the_tankman#5314')
+        await message.channel.send('UltimatePythonDev#5314')
 
     if message.content.startswith('r!amongus'):
         await message.channel.send('YOU ARE AN IMPOSTOR!!')
