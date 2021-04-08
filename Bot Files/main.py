@@ -71,7 +71,8 @@ async def on_message(message):
 
     if message.content.startswith('r!help'):
         embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=0x00ff00)
-        embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!catchpkmn, r!mine, r!randomnumber, r!yt", inline=False)
+        embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt", inline=False)
+        embedVar.add_field(name="Very-Minigames", value="r!catchpkmn, r!mine", inline=False)
         embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website", inline=False)
         embedVar.add_field(name="More Commands", value="https://sites.google.com/view/registeeldiscordbot/commands", inline=False)
         await message.channel.send(embed=embedVar)
