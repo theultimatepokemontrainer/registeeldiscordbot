@@ -33,6 +33,10 @@ mining_stuff = ["You mined Stone!", "You mined Dirt...","You mined DIAMONDS", "Y
 
 pkmnto_catch = ['You caught a Pikachu', 'You caught a Zebstrika', 'You caught a Lugia', 'You caught a Venusaur', 'You caught and ARCEUS OMG', 'You caught a Snom. EEEE', 'You caught..... Nothing']
 
+coin_stuff = ['You got Heads!', 'You got Tails!']
+
+random = random.choice(coin_stuff)
+
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
@@ -72,7 +76,7 @@ async def on_message(message):
     if message.content.startswith('r!help'):
         embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=0x00ff00)
         embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt", inline=False)
-        embedVar.add_field(name="Very-Minigames", value="r!catchpkmn, r!mine", inline=False)
+        embedVar.add_field(name="Very-Minigames", value="r!catchpkmn, r!mine, r!coinflip", inline=False)
         embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website", inline=False)
         await message.channel.send(embed=embedVar)
 
@@ -100,7 +104,7 @@ async def on_message(message):
             'Uh ok. https://www.youtube.com/watch?v=QH2-TGUlwu4')
 
     if message.content.startswith('r!creator'):
-        await message.channel.send('UltimatePythonDev#5314')
+        await message.channel.send('𝓤𝓵𝓽𝓲𝓶𝓪𝓽𝓮𝓟𝔂𝓽𝓱𝓸𝓷𝓓𝓮𝓿#5314')
 
     if message.content.startswith('r!amongus'):
         await message.channel.send('YOU ARE AN IMPOSTOR!!')
@@ -141,8 +145,10 @@ async def on_message(message):
 
     if message.content.startswith('r!yt'):
         await message.channel.send('Subscribe here! https://www.youtube.com/channel/UCxzkAP7o94jO-5U1DcESA8w')
-   
 
-
+    if message.content.startswith('r!coinflip'):
+        embedVar = discord.Embed(title="Coin Flipped!", description=random, color=0xf1c40f,)
+        await message.channel.send(embed=embedVar)
+        
 keep_alive()
 client.run(os.getenv('TOKEN'))
