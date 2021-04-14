@@ -104,7 +104,7 @@ async def on_message(message):
             'Uh ok. https://www.youtube.com/watch?v=QH2-TGUlwu4')
 
     if message.content.startswith('r!creator'):
-        await message.channel.send('UltimatePythonDev#5314')
+        await message.channel.send('ExplodingMegaNuke#5314')
 
     if message.content.startswith('r!amongus'):
         await message.channel.send('YOU ARE AN IMPOSTOR!!')
