@@ -47,7 +47,7 @@ def get_quote():
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='r!help'))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='r!help'))
 
 
 @client.event
@@ -76,7 +76,7 @@ async def on_message(message):
     if message.content.startswith('r!help'):
         embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=0x00ff00)
         embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt", inline=False)
-        embedVar.add_field(name="Very-Minigames", value="r!catchpkmn, r!mine, r!coinflip", inline=False)
+        embedVar.add_field(name="Very-Minigames", value="r!coinflip", inline=False)
         embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website", inline=False)
         await message.channel.send(embed=embedVar)
 
@@ -126,12 +126,6 @@ async def on_message(message):
 
     if message.content.startswith('r!rumors'):
         await message.channel.send('Some say that the third Pokemon SwSh DLC is named "Cinder Citadel"')
-
-    if message.content.startswith('r!mine'):
-      await message.channel.send(random.choice(mining_stuff))
-
-    if message.content.startswith('r!catchpkmn'):
-      await message.channel.send(random.choice(pkmnto_catch))  
 
     if message.content.startswith('r!randomnumber'):
       randomnumber = random.randint(0,1000)
