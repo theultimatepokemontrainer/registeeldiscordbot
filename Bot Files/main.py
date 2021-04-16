@@ -31,7 +31,7 @@ igot_caught = ["You have caught the wild Registeel"]
 
 mining_stuff = ["You mined Stone!", "You mined Dirt...","You mined DIAMONDS", "You mined Emerald", "You mined nothing LOL", "You mined Redstone, cool!", "You mined GOLD"]
 
-pkmnto_catch = ['You caught a Pikachu', 'You caught a Zebstrika', 'You caught a Lugia', 'You caught a Venusaur', 'You caught and ARCEUS OMG', 'You caught a Snom. EEEE', 'You caught..... Nothing']
+pkmnto_catch = ['You caught a Pikachu', 'You caught a Zebstrika', 'You caught a Lugia', 'You caught a Venusaur', 'You caught an ARCEUS OMG', 'You caught a Snom. EEEE', 'You caught..... Nothing']
 
 coin_stuff = ['You got Heads!', 'You got Tails!']
 
@@ -74,10 +74,11 @@ async def on_message(message):
         )
 
     if message.content.startswith('r!help'):
-        embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=0x00ff00)
-        embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt", inline=False)
+        embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=323233)
+        embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!shrek, r!changestatus", inline=True)
         embedVar.add_field(name="Very-Minigames", value="r!coinflip", inline=False)
-        embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website", inline=False)
+        embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website", inline=True)
+        embedVar.add_field(name="Important commands", value="r!vote, r!help")
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!rickroll'):
@@ -143,6 +144,17 @@ async def on_message(message):
     if message.content.startswith('r!coinflip'):
         embedVar = discord.Embed(title="Coin Flipped!", description=random, color=0xf1c40f,)
         await message.channel.send(embed=embedVar)
+
+    if message.content.startswith('r!vote'):
+        await message.channel.send('You can vote every 12 hours! https://top.gg/bot/809002048447184948/vote')
+
+    if message.content.startswith('r!changestatus'):
+        await message.channel.send('https://media.discordapp.net/attachments/819416319430492192/832080261511643167/image0-26.png?width=600&height=220 (not true tho)')
+
+    
+    if message.content.startswith('r!shrek'):
+        await message.channel.send('https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png')
+    
         
 keep_alive()
 client.run(os.getenv('TOKEN'))
