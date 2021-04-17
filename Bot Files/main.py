@@ -7,9 +7,11 @@ import json
 from dotenv import load_dotenv
 from discord.ext import commands
 import pokebase as pb
+from discord_slash import SlashCommand
 
 load_dotenv()
 client = discord.Client()
+slash = SlashCommand(client, sync_commands=True)
 
 pokemon_words = [
     "I want to be a pokemon master!", "Let's Go!", "Pikachu use Thunderbolt!",
@@ -49,6 +51,10 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='r!help'))
 
+@slash.slash(name="helloworld",
+             description="hello world")
+async def test(ctx):
+  await ctx.send(content="Hello World!")
 
 @client.event
 async def on_message(message):
@@ -79,6 +85,7 @@ async def on_message(message):
         embedVar.add_field(name="Very-Minigames", value="r!coinflip", inline=False)
         embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite", inline=True)
         embedVar.add_field(name="Important commands", value="r!vote, r!help")
+        embedVar.add_field(name="Slash commandss", value="/helloworld")
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!rickroll'):
