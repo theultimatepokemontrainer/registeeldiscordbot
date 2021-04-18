@@ -69,7 +69,7 @@ async def on_message(message):
 
     if message.content.startswith('r!invite'):
         await message.channel.send(
-            'https://discord.com/api/oauth2/authorize?client_id=809002048447184948&permissions=8&scope=bot%20applications.commands'
+            'https://discord.com/api/oauth2/authorize?client_id=809002048447184948&permissions=8&scope=bot'
         )
 
     if message.content.startswith('r!help'):
@@ -157,7 +157,6 @@ async def on_message(message):
 
     if message.content.startswith('r!server'):
         await message.channel.send('https://discord.gg/H2aqnsXfuc')
-    
-        
+
 keep_alive()
 client.run(os.getenv('TOKEN'))
