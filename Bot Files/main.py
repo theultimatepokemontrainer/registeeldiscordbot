@@ -76,9 +76,9 @@ async def on_message(message):
         embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=323233)
         embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!shrek, r!changestatus", inline=True)
         embedVar.add_field(name="Very-Minigames", value="r!coinflip", inline=False)
-        embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite", inline=True)
+        embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite, r!server", inline=True)
         embedVar.add_field(name="Important commands", value="r!vote, r!help")
-        embedVar.add_field(name="Slash commandss", value="/helloworld(not working)")
+        embedVar.add_field(name="Slash commands", value="/helloworld(not working)")
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!rickroll'):
