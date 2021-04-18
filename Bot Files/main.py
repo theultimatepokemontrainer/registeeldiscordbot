@@ -7,11 +7,9 @@ import json
 from dotenv import load_dotenv
 from discord.ext import commands
 import pokebase as pb
-from discord_slash import SlashCommand
 
 load_dotenv()
 client = discord.Client()
-slash = SlashCommand(client, sync_commands=True)
 
 pokemon_words = [
     "I want to be a pokemon master!", "Let's Go!", "Pikachu use Thunderbolt!",
@@ -50,11 +48,6 @@ def get_quote():
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='r!help'))
-
-@slash.slash(name="helloworld",
-             description="hello world")
-async def test(ctx):
-  await ctx.send(content="Hello World!")
 
 @client.event
 async def on_message(message):
