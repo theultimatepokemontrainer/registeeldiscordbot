@@ -78,7 +78,7 @@ async def on_message(message):
         embedVar.add_field(name="Very-Minigames", value="r!coinflip", inline=False)
         embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite", inline=True)
         embedVar.add_field(name="Important commands", value="r!vote, r!help")
-        embedVar.add_field(name="Slash commandss", value="/helloworld")
+        embedVar.add_field(name="Slash commandss", value="/helloworld(not working)")
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!rickroll'):
@@ -154,6 +154,9 @@ async def on_message(message):
     
     if message.content.startswith('r!shrek'):
         await message.channel.send('https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png')
+
+    if message.content.startswith('r!server'):
+        await message.channel.send('https://discord.gg/H2aqnsXfuc')
     
         
 keep_alive()
