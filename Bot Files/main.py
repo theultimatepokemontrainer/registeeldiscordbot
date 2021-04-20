@@ -78,7 +78,6 @@ async def on_message(message):
         embedVar.add_field(name="Very-Minigames", value="r!coinflip", inline=False)
         embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite, r!server", inline=True)
         embedVar.add_field(name="Important commands", value="r!vote, r!help")
-        embedVar.add_field(name="Slash commands", value="/helloworld(not working)")
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!rickroll'):
