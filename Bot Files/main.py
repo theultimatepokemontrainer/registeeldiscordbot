@@ -57,7 +57,7 @@ async def on_message(message):
     if message.content.startswith('r!help'):
         await message.add_reaction('👌')
         embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=323233)
-        embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!shrek, r!changestatus", inline=True)
+        embedVar.add_field(name="FUN Commands", value="r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!shrek, r!changestatus, r!poll", inline=True)
         embedVar.add_field(name="Very-Minigames", value="r!coinflip", inline=False)
         embedVar.add_field(name="Other Commands", value="r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite, r!server", inline=True)
         embedVar.add_field(name="Important commands", value="r!vote, r!help")
@@ -82,7 +82,7 @@ async def on_message(message):
         )
 
     if message.content.startswith('r!rickroll'):
-        await message.add_reaction('👌')
+        await message.add_reaction('🐸')
         await message.channel.send(
             'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
 
@@ -158,6 +158,11 @@ async def on_message(message):
 
     if message.content.startswith('r!server'):
         await message.channel.send('https://discord.gg/dUjVkwM7hP')
+
+    if message.content.startswith('r!poll'):
+        await message.add_reaction('👍')
+        await message.add_reaction('👎')
+        await message.channel.send('👍 for yes 👎 for no')
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
