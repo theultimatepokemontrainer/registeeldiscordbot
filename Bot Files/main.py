@@ -11,6 +11,8 @@ import pokebase as pb
 load_dotenv()
 client = discord.Client()
 
+print('Hello, World')
+
 pokemon_words = [
     "I want to be a pokemon master!", "Let's Go!", "Pikachu use Thunderbolt!",
     "YEAH!", "Pokemon!"
@@ -43,11 +45,10 @@ def get_quote():
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
     return (quote)
 
-
 @client.event
 async def on_ready():
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.competing, name='r!help'))
     print('We have logged in as {0.user}'.format(client))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='r!help'))
 
 @client.event
 async def on_message(message):
@@ -73,7 +74,7 @@ async def on_message(message):
 
     if message.content.startswith('r!games'):
         embedVar= discord.Embed(title="Games", description="Game Commands", color=323233)
-        embedVar.add_field(name="Very-Minigames", value="```r!coinflip```", inline=False)
+        embedVar.add_field(name="Simple Games", value="```r!coinflip```", inline=False)
         embedVar.add_field(name="Economy", value="*Coming Soon*", inline=False)
         await message.channel.send(embed=embedVar)
 
