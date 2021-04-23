@@ -73,7 +73,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!other'):
-        embedVar= discord.Embed(title="Other Commands", description="```r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite, r!server```", color=323233)
+        embedVar= discord.Embed(title="Other Commands", description="```r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite```", color=323233)
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!randomquote'):
@@ -165,9 +165,6 @@ async def on_message(message):
     
     if message.content.startswith('r!shrek'):
         await message.channel.send('https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png')
-
-    if message.content.startswith('r!server'):
-        await message.channel.send('https://discord.gg/dUjVkwM7hP')
 
     if message.content.startswith('r!poll'):
         await message.add_reaction('👍')
