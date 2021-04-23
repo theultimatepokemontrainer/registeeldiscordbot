@@ -23,12 +23,6 @@ pokemon_responses = [
     "Do you know Mega Evolution?"
 ]
 
-word_s = ["Hi Registeel"]
-
-response_s = ["Hey! What's Up!"]
-
-poke_ball = ["GO POKEBALL!"]
-
 igot_caught = ["You have caught the wild Registeel"]
 
 mining_stuff = ["You mined Stone!", "You mined Dirt...","You mined DIAMONDS", "You mined Emerald", "You mined nothing LOL", "You mined Redstone, cool!", "You mined GOLD"]
@@ -65,7 +59,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!fun'):
-        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!shrek, r!changestatus, r!poll```", color=323233)
+        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!shrek, r!say <message>, r!poll```", color=323233)
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!important'):
@@ -139,11 +133,11 @@ async def on_message(message):
         await message.channel.send(
             'https://sites.google.com/view/registeeldiscordbot')
 
-    if any(word in message.content for word in word_s):
-        await message.channel.send(random.choice(response_s))
+    if message.content.startswith('Hi Registeel'):
+        await message.channel.send('Hello!')
 
-    if any(word in message.content for word in poke_ball):
-        await message.channel.send(random.choice(igot_caught))
+    if message.content.startswith('GO POKEBALL!'):
+        await message.channel.send('Nope!')
 
     if message.content.startswith('r!rumors'):
         await message.channel.send('Some say that the third Pokemon SwSh DLC is named "Cinder Citadel"')
@@ -168,9 +162,6 @@ async def on_message(message):
     if message.content.startswith('r!vote'):
         await message.channel.send('You can vote every 12 hours! https://top.gg/bot/809002048447184948/vote')
 
-    if message.content.startswith('r!changestatus'):
-        await message.channel.send('https://media.discordapp.net/attachments/819416319430492192/832080261511643167/image0-26.png?width=600&height=220 (not true tho)')
-
     
     if message.content.startswith('r!shrek'):
         await message.channel.send('https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png')
@@ -182,6 +173,9 @@ async def on_message(message):
         await message.add_reaction('👍')
         await message.add_reaction('👎')
         await message.channel.send('👍 for yes 👎 for no')
+
+    if message.content.startswith("r!say"):
+        await message.channel.send(message.content[5:].format(message))
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
