@@ -10,7 +10,6 @@ import pokebase as pb
 
 load_dotenv()
 client = discord.Client()
-
 print('Hello, World')
 
 pokemon_words = [
@@ -31,6 +30,8 @@ pkmnto_catch = ['You caught a Pikachu', 'You caught a Zebstrika', 'You caught a 
 
 coin_stuff = ['You got Heads!', 'You got Tails!']
 
+hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
 random = random.choice(coin_stuff)
 
 def get_quote():
@@ -39,10 +40,11 @@ def get_quote():
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
     return (quote)
 
+
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.competing, name='r!help'))
-    print('We have logged in as {0.user}'.format(client))
+    print('{0.user} is ready!'.format(client))
 
 @client.event
 async def on_message(message):
@@ -59,7 +61,8 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!fun'):
-        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!shrek, r!say <message>, r!poll```", color=323233)
+        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll```", color=323233)
+        embedVar.add_field(name='Shrek', value='```r!shrek, r!donkey```')
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!important'):
@@ -84,7 +87,7 @@ async def on_message(message):
        await message.channel.send(random.choice(pokemon_responses))
 
     if message.content.startswith('r!hello'):
-        await message.channel.send('Hello!')
+        await message.channel.send('Hello')
 
     if message.content.startswith('r!goodbye'):
         await message.channel.send('Bye. Hope you had a great time!')
@@ -173,6 +176,9 @@ async def on_message(message):
 
     if message.content.startswith("r!say"):
         await message.channel.send(message.content[5:].format(message))
+
+    if message.content.startswith('r!donkey'):
+        await message.channel.send('https://i.pinimg.com/originals/b6/63/e8/b663e843f4bef374de7bd57a3d3b028c.jpg')
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
