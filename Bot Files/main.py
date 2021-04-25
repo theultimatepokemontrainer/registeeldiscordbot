@@ -30,8 +30,6 @@ pkmnto_catch = ['You caught a Pikachu', 'You caught a Zebstrika', 'You caught a 
 
 coin_stuff = ['You got Heads!', 'You got Tails!']
 
-hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
 random = random.choice(coin_stuff)
 
 def get_quote():
@@ -43,7 +41,7 @@ def get_quote():
 
 @client.event
 async def on_ready():
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.competing, name='r!help'))
+    await client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.competing, name='r!help'))
     print('{0.user} is ready!'.format(client))
 
 @client.event
