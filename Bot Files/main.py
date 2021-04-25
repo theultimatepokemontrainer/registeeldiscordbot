@@ -41,7 +41,7 @@ def get_quote():
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.dnd, activity=discord.Activity(type=discord.ActivityType.competing, name='r!help'))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.competing, name='r!help'))
     print('{0.user} is ready!'.format(client))
 
 @client.event
