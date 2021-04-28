@@ -6,7 +6,6 @@ import requests
 import json
 from dotenv import load_dotenv
 from discord.ext import commands
-import pokebase as pb
 
 load_dotenv()
 client = discord.Client()
@@ -41,7 +40,7 @@ def get_quote():
 
 @client.event
 async def on_ready():
-    await client.change_presence( activity=discord.Activity(status=discord.Status.dnd, type=discord.ActivityType.competing, name='r!help'))
+    await client.change_presence( activity=discord.Activity( type=discord.ActivityType.competing, name='r!help'))
     print('{0.user} is ready!'.format(client))
 
 @client.event
@@ -59,7 +58,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!fun'):
-        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone, r!registeelheight, r!registeelweight, r!registeelsprite, r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll```", color=323233)
+        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone,r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll, r!mentionme```", color=323233)
         embedVar.add_field(name='Shrek', value='```r!shrek, r!donkey```')
         await message.channel.send(embed=embedVar)
 
@@ -74,7 +73,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!other'):
-        embedVar= discord.Embed(title="Other Commands", description="```r!randomquote, r!hello, r!goodbye, r!creator, r!sourcecode, r!website, r!invite```", color=323233)
+        embedVar= discord.Embed(title="Other Commands", description="```r!randomquote, r!creator, r!sourcecode, r!website, r!invite```", color=323233)
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!randomquote'):
@@ -83,12 +82,6 @@ async def on_message(message):
 
     if any(word in message.content for word in pokemon_words):
        await message.channel.send(random.choice(pokemon_responses))
-
-    if message.content.startswith('r!hello'):
-        await message.channel.send('Hello')
-
-    if message.content.startswith('r!goodbye'):
-        await message.channel.send('Bye. Hope you had a great time!')
 
     if message.content.startswith('r!invite'):
         await message.channel.send(
@@ -103,24 +96,12 @@ async def on_message(message):
     if message.content.startswith('r!pingeveryone'):
         await message.channel.send('Hello @everyone!')
 
-
-    if message.content.startswith('r!registeelheight'):
-        registeel = pb.pokemon('registeel')
-        await message.channel.send(registeel.height)
-
-    if message.content.startswith('r!registeelweight'):
-        registeel = pb.pokemon('registeel')
-        await message.channel.send(registeel.weight)
-
-    if message.content.startswith('r!registeelsprite'):
-        await message.channel.send('https://img.pokemondb.net/artwork/large/registeel.jpg')
-
     if message.content.startswith('r!gimmeameem'):
         await message.channel.send(
             'Uh ok. https://www.youtube.com/watch?v=QH2-TGUlwu4')
 
     if message.content.startswith('r!creator'):
-        await message.channel.send('lucaz_#5314')
+        await message.channel.send('JohnnyTest#5314')
 
     if message.content.startswith('r!amongus'):
         await message.channel.send('YOU ARE AN IMPOSTOR!!')
@@ -149,10 +130,6 @@ async def on_message(message):
       if randomnumber == 626:
         await message.channel.send('Your number is **626**. You win a cookie :)')
 
-    if message.content.startswith('secret!e'):
-     e = pb.pokemon_shape('fish')
-     await message.channel.send(e.pokemon_species)
-
     if message.content.startswith('r!yt'):
         await message.channel.send('Subscribe here! https://www.youtube.com/channel/UCxzkAP7o94jO-5U1DcESA8w')
 
@@ -177,6 +154,9 @@ async def on_message(message):
 
     if message.content.startswith('r!donkey'):
         await message.channel.send('https://i.pinimg.com/originals/b6/63/e8/b663e843f4bef374de7bd57a3d3b028c.jpg')
+
+    if message.content.startswith('r!mentionme'):
+        await message.channel.send('Hello '+message.author.mention+'. How are you?')
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
