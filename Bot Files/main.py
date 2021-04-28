@@ -40,7 +40,7 @@ def get_quote():
 
 @client.event
 async def on_ready():
-    await client.change_presence( activity=discord.Activity( type=discord.ActivityType.competing, name='r!help'))
+    await client.change_presence( activity=discord.Activity( type=discord.ActivityType.competing, name='Pokemon Battles'))
     print('{0.user} is ready!'.format(client))
 
 @client.event
@@ -58,7 +58,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!fun'):
-        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone,r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll, r!mentionme```", color=323233)
+        embedVar = discord.Embed(title="FUN Commands", description="```r!rickroll, r!pingeveryone,r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll, r!hello```", color=323233)
         embedVar.add_field(name='Shrek', value='```r!shrek, r!donkey```')
         await message.channel.send(embed=embedVar)
 
@@ -155,7 +155,7 @@ async def on_message(message):
     if message.content.startswith('r!donkey'):
         await message.channel.send('https://i.pinimg.com/originals/b6/63/e8/b663e843f4bef374de7bd57a3d3b028c.jpg')
 
-    if message.content.startswith('r!mentionme'):
+    if message.content.startswith('r!hello'):
         await message.channel.send('Hello '+message.author.mention+'. How are you?')
 
 keep_alive()
