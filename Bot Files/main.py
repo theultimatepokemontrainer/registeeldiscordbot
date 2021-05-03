@@ -73,7 +73,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!other'):
-        embedVar= discord.Embed(title="Other Commands", description="```r!randomquote, r!creator, r!sourcecode, r!website, r!invite```", color=323233)
+        embedVar= discord.Embed(title="Other Commands", description="```r!randomquote, r!sourcecode, r!website, r!invite```", color=323233)
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!randomquote'):
@@ -99,9 +99,6 @@ async def on_message(message):
     if message.content.startswith('r!gimmeameem'):
         await message.channel.send(
             'Uh ok. https://www.youtube.com/watch?v=QH2-TGUlwu4')
-
-    if message.content.startswith('r!creator'):
-        await message.channel.send('JohnnyTest#5314')
 
     if message.content.startswith('r!amongus'):
         await message.channel.send('YOU ARE AN IMPOSTOR!!')
