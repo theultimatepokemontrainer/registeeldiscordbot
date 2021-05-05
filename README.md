@@ -3,4 +3,4 @@
 <h2>Updates VERY frequently</h2>
 <b>You can check out Registeel's code in the folder "Bot Files"</b>
 <b>Remember to vote!</b>
-https://top.gg/bot/809002048447184948
+[![Discord Bots](https://top.gg/api/widget/809002048447184948.svg)](https://top.gg/bot/809002048447184948)
