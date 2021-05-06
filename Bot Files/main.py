@@ -5,7 +5,7 @@ import random
 import requests
 import json
 from dotenv import load_dotenv
-from discord.ext import commands
+from randfacts import getFact
 
 load_dotenv()
 client = discord.Client()
@@ -36,7 +36,6 @@ def get_quote():
     json_data = json.loads(response.text)
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
     return (quote)
-
 
 @client.event
 async def on_ready():
@@ -154,6 +153,10 @@ async def on_message(message):
 
     if message.content.startswith('r!hello'):
         await message.channel.send('Hello '+message.author.mention+'. How are you?')
+
+    if message.content.startswith('r!fact'):
+        x = getFact()
+        await message.channel.send(x)
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
