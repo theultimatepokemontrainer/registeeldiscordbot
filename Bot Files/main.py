@@ -47,31 +47,31 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('r!help'):
+    if message.content == ('r!help'):
         await message.add_reaction('👌')
         embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=323233)
-        embedVar.add_field(name='Fun Commands', value='`r!fun`', inline=True)
-        embedVar.add_field(name='Important Commands', value='`r!important`', inline=True)
-        embedVar.add_field(name='Games', value='`r!games`', inline=True)
-        embedVar.add_field(name='Other commands', value='`r!other`', inline=True)
+        embedVar.add_field(name='Fun Commands', value='`r!help fun`', inline=True)
+        embedVar.add_field(name='Important Commands', value='`r!help important`', inline=True)
+        embedVar.add_field(name='Games', value='`r!help games`', inline=True)
+        embedVar.add_field(name='Other commands', value='`r!help other`', inline=True)
         await message.channel.send(embed=embedVar)
 
-    if message.content.startswith('r!fun'):
-        embedVar = discord.Embed(title="FUN Commands", description="`r!rickroll, r!pingeveryone,r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll, r!hello`", color=323233)
+    if message.content == ('r!help fun'):
+        embedVar = discord.Embed(title="FUN Commands", description="`r!rickroll, r!pingeveryone,r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll, r!hello, r!fact`", color=323233)
         embedVar.add_field(name='Shrek', value='`r!shrek, r!donkey`')
         await message.channel.send(embed=embedVar)
 
-    if message.content.startswith('r!important'):
+    if message.content == ('r!help important'):
         embedVar= discord.Embed(title="Important commands", description="`r!vote, r!help`", color=323233)
         await message.channel.send(embed=embedVar)
 
-    if message.content.startswith('r!games'):
+    if message.content == ('r!help games'):
         embedVar= discord.Embed(title="Games", description="Game Commands", color=323233)
         embedVar.add_field(name="Simple Games", value="`r!coinflip`", inline=False)
         embedVar.add_field(name="Economy", value="*Coming Soon*", inline=False)
         await message.channel.send(embed=embedVar)
 
-    if message.content.startswith('r!other'):
+    if message.content == ('r!help other'):
         embedVar= discord.Embed(title="Other Commands", description="`r!randomquote, r!sourcecode, r!website, r!invite`", color=323233)
         await message.channel.send(embed=embedVar)
 
@@ -116,9 +116,6 @@ async def on_message(message):
 
     if message.content.startswith('GO POKEBALL!'):
         await message.channel.send('Nope!')
-
-    if message.content.startswith('r!rumors'):
-        await message.channel.send('Some say that the third Pokemon SwSh DLC is named "Cinder Citadel"')
 
     if message.content.startswith('r!randomnumber'):
       randomnumber = random.randint(0,1000)
