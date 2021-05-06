@@ -51,7 +51,6 @@ async def on_message(message):
         await message.add_reaction('👌')
         embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=323233)
         embedVar.add_field(name='Fun Commands', value='`r!help fun`', inline=True)
-        embedVar.add_field(name='Important Commands', value='`r!help important`', inline=True)
         embedVar.add_field(name='Games', value='`r!help games`', inline=True)
         embedVar.add_field(name='Other commands', value='`r!help other`', inline=True)
         await message.channel.send(embed=embedVar)
@@ -61,10 +60,6 @@ async def on_message(message):
         embedVar.add_field(name='Shrek', value='`r!shrek, r!donkey`')
         await message.channel.send(embed=embedVar)
 
-    if message.content == ('r!help important'):
-        embedVar= discord.Embed(title="Important commands", description="`r!vote, r!help`", color=323233)
-        await message.channel.send(embed=embedVar)
-
     if message.content == ('r!help games'):
         embedVar= discord.Embed(title="Games", description="Game Commands", color=323233)
         embedVar.add_field(name="Simple Games", value="`r!coinflip`", inline=False)
@@ -72,7 +67,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content == ('r!help other'):
-        embedVar= discord.Embed(title="Other Commands", description="`r!randomquote, r!sourcecode, r!website, r!invite`", color=323233)
+        embedVar= discord.Embed(title="Other Commands", description="`r!randomquote, r!sourcecode, r!website, r!invite, r!vote, r!help`", color=323233)
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!randomquote'):
