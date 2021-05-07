@@ -49,14 +49,14 @@ async def on_message(message):
 
     if message.content == ('r!help'):
         await message.add_reaction('👌')
-        embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=323233)
+        embedVar = discord.Embed(title="Commands", description="All of Registeel's Commands!", color=0x1abc9c)
         embedVar.add_field(name='Fun Commands', value='`r!help fun`', inline=True)
         embedVar.add_field(name='Games', value='`r!help games`', inline=False)
         embedVar.add_field(name='Other commands', value='`r!help other`', inline=False)
         await message.channel.send(embed=embedVar)
 
     if message.content == ('r!help fun'):
-        embedVar = discord.Embed(title="FUN Commands", description="`r!rickroll, r!pingeveryone,r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll, r!hello, r!fact`", color=0xe74c3c)
+        embedVar = discord.Embed(title="FUN Commands", description="`r!rickroll, r!pingeveryone,r!gimmeameem, r!amongus, r!randomnumber, r!yt, r!say <message>, r!poll, r!hello, r!fact`", color=0x1abc9c)
         embedVar.add_field(name='Shrek', value='`r!shrek, r!donkey`')
         await message.channel.send(embed=embedVar)
 
@@ -67,7 +67,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content == ('r!help other'):
-        embedVar= discord.Embed(title="Other Commands", description="`r!randomquote, r!sourcecode, r!website, r!invite, r!vote, r!help`", color=0xe67e22)
+        embedVar= discord.Embed(title="Other Commands", description="`r!randomquote, r!sourcecode, r!website, r!invite, r!vote, r!help`", color=0x1abc9c)
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith('r!randomquote'):
@@ -148,7 +148,8 @@ async def on_message(message):
 
     if message.content.startswith('r!fact'):
         x = getFact()
-        await message.channel.send(x)
+        embed = discord.Embed(title='{}, here is your fact'.format(message.author.name), description=x, color=0x1abc9c)
+        await message.channel.send(embed=embed)
 
 keep_alive()
 client.run(os.getenv('TOKEN'))
