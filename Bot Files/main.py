@@ -5,14 +5,22 @@ import random
 import requests
 import json
 from randfacts import getFact
+from discord.utils import find
+
 
 client = discord.Client()
 print('Hello, World')
 
-
 coin_stuff = ['You got Heads!', 'You got Tails!']
 
 random = random.choice(coin_stuff)
+
+@client.event
+async def on_guild_join(guild):
+    general = find(lambda x: x.name == 'general',  guild.text_channels)
+    if general and general.permissions_for(guild.me).send_messages:
+        embed = discord.Embed(title="Hello!", description="Hello! I am very glad you added me to **"+"{}".format(guild.name)+"**! Thanks for that! If you want to support us, please vote us in top.gg. https://top.gg/bot/809002048447184948/vote", color=0x1abc9c)
+        await general.send(embed=embed)
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
@@ -40,7 +48,7 @@ async def on_message(message):
 
     if message.content == ('r!help fun'):
         embedVar = discord.Embed(title="FUN Commands", description="`r!randomnumber, r!yt, r!say <message>, r!poll, r!fact`", color=0x1abc9c)
-        embedVar.add_field(name="Go to: 7 Wonders of The World", value="`r!goto taj mahal, r!goto colosseum, r!goto chichen itza, r!goto machu picchu, r!goto Christ the Redeemer (Note: the c and r has to be capital or it won't work), r!goto petra, r!goto great wall of china`")
+        embedVar.add_field(name="Go to: 7 Wonders of The World", value="`r!goto taj mahal, r!goto colosseum, r!goto chichen itza, r!goto machu picchu, r!goto Christ the Redeemer, r!goto petra, r!goto great wall of china`")
         await message.channel.send(embed=embedVar)
 
     if message.content == ('r!help games'):
