@@ -30,7 +30,7 @@ def get_quote():
 
 @client.event
 async def on_ready():
-    await client.change_presence( activity=discord.Activity( type=discord.ActivityType.competing, name='Pokemon Battles'))
+    await client.change_presence( activity=discord.Activity( type=discord.ActivityType.listening, name='r!help'))
     print('{0.user} is ready!'.format(client))
 
 @client.event
@@ -62,8 +62,9 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content == ('r!quote'):
-        quote = get_quote()
-        await message.channel.send(quote)
+        y = get_quote()
+        embed = discord.Embed(title="{}, here is a quote to inspire you.".format(message.author.name), description=y, color=0x1abc9c)
+        await message.channel.send(embed=embed)
 
     if message.content == ('r!invite'):
         await message.channel.send(
@@ -72,7 +73,7 @@ async def on_message(message):
 
     if message.content == ('r!website'):
         await message.channel.send(
-            'https://sites.google.com/view/registeeldiscordbot')
+            'https://registeeldev1.wixsite.com/registeel')
 
     if message.content == ('r!yt'):
         await message.channel.send('Subscribe here! https://www.youtube.com/channel/UCxzkAP7o94jO-5U1DcESA8w')
@@ -128,6 +129,6 @@ async def on_message(message):
 
     if message.content == ("r!goto great wall of china"):
         await message.channel.send('https://cdn.getyourguide.com/img/location/5457947b8a235.jpeg/92.jpg')
-
+        
 keep_alive()
 client.run(os.getenv('TOKEN'))
