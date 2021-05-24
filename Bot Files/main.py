@@ -28,6 +28,7 @@ def get_quote():
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
     return (quote)
 
+
 @client.event
 async def on_ready():
     await client.change_presence( activity=discord.Activity( type=discord.ActivityType.listening, name='r!help'))
@@ -48,7 +49,6 @@ async def on_message(message):
 
     if message.content == ('r!help fun'):
         embedVar = discord.Embed(title="FUN Commands", description="`r!randomnumber, r!yt, r!say <message>, r!poll, r!fact`", color=0x1abc9c)
-        embedVar.add_field(name="Go to: 7 Wonders of The World", value="`r!goto taj mahal, r!goto colosseum, r!goto chichen itza, r!goto machu picchu, r!goto Christ the Redeemer, r!goto petra, r!goto great wall of china`")
         await message.channel.send(embed=embedVar)
 
     if message.content == ('r!help games'):
@@ -108,27 +108,6 @@ async def on_message(message):
         x = getFact()
         embed = discord.Embed(title='{}, here is your fact'.format(message.author.name), description=x, color=0x1abc9c)
         await message.channel.send(embed=embed)
-
-    if message.content == ("r!goto taj mahal"):
-        await message.channel.send('https://cdn.britannica.com/86/170586-050-AB7FEFAE/Taj-Mahal-Agra-India.jpg')
-
-    if message.content == ("r!goto colosseum"):
-        await message.channel.send('https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/250px-Colosseo_2020.jpg')
-
-    if message.content == ("r!goto chichen itza"):
-        await message.channel.send('https://cdn.hswstatic.com/gif/chichen-itza.jpg')
-
-    if message.content == ("r!goto machu picchu"):
-        await message.channel.send('https://i.guim.co.uk/img/media/b56952349419f749667d43f38b4d05e2980821a2/0_176_6016_3611/master/6016.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=d1d59c0c9b0e70e1da5989902cf5f01c')    
-
-    if message.content == ("r!goto Christ the Redeemer"):
-        await message.channel.send('http://4.bp.blogspot.com/-yA1inFreZAQ/Uei0hFMHFsI/AAAAAAAAHMY/rTic90zSDmk/s1600/BrasilCorcovadoStatue.jpg')
-
-    if message.content == ("r!goto petra"):
-        await message.channel.send('https://travelsquire.com/ts/wp-content/uploads/2019/10/Petra-Feature.jpg')
-
-    if message.content == ("r!goto great wall of china"):
-        await message.channel.send('https://cdn.getyourguide.com/img/location/5457947b8a235.jpeg/92.jpg')
         
 keep_alive()
 client.run(os.getenv('TOKEN'))
